@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <title>Lineares Gleichungs System für fortgeschrittene Stiftis</title>
+    <!-- In order to work offline provide sql.js/sql-asm-debug.js -->
+    <!--<script src="sql.js/sql-asm-debug.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-asm-debug.js"
+            integrity="sha512-jn1pEImIwh8tx/cm45kYvFThvKOtvEEe8nZeGyrSwdfoLySwqYxDsisZ9eJdEB6b2YYLBShqPH1ZXXyjACe7CQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--    <script src="codemirror/lib/codemirror.js"></script>-->
+    <!--    <script src="codemirror/addon/selection/active-line.js"></script>-->
+    <!--    <script src="codemirror/mode/sql/sql.js"></script>-->
+    <!--    <link rel="stylesheet" href="codemirror/lib/codemirror.css">-->
+    <!--    <link rel="stylesheet" href="codemirror/theme/neat.css">-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"
+            integrity="sha512-sSWQXoxIkE0G4/xqLngx5C53oOZCgFRxWE79CvMX2X0IKx14W3j9Dpz/2MpRh58xb2W/h+Y4WAHJQA0qMMuxJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/selection/active-line.min.js"
+            integrity="sha512-0sDhEPgX5DsfNcL5ty4kP6tR8H2vPkn40GwA0RYTshkbksURAlsRVnG4ECPPBQh7ZYU6S3rGvp5uhlGQUNrcmA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/sql/sql.min.js"
+            integrity="sha512-TZji/E4or1ciET62zt9IgnfFJPkMqV4EhZ8AfiRVZeq+yxCT5O+PomM7nkfttOwX/ckDwjPzevAUhKvXnHl7MA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.min.js"
+            integrity="sha512-4+hfJ/4qrBFEm8Wdz+mXpoTr/weIrB6XjJZAcc4pE2Yg5B06aKS/YLMN5iIAMXFTe0f1eneuLE5sRmnSHQqFNg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/sql-hint.min.js"
+            integrity="sha512-Pue0eeX9BJ4IA+BRNDOFwhQmxPjXIHiHOsvHNc9dQ+3J43swbPQDT9gwC8lzE1TTjR8iIxOd+lNiv4oTBRWqYw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css"
+          integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/neat.min.css"
+          integrity="sha512-yySSMHK1wb+xdn5GRRSXY6KQMMMyBS4jGB5bKms2Gu2U9mGQnk4zUavraMI/Cc0h19kYNPlQYkqK6pVXM4O56Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.min.css"
+            integrity="sha512-W/cvA9Wiaq79wGy/VOkgMpOILyqxqIMU+rkneDUW2uqiUT53I6DKmrF4lmCbRG+/YrW0J69ecvanKCCyb+sIWA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="sqlInitializer.js"></script>
+    <script src="dbManagement.js"></script>
+    <script src="editorprompts.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+<div style="display: flex; flex-direction: column">
+    <h1>Lineares Gleichungs System für fortgeschrittene Stiftis</h1>
+    <p>
+        Willkommen zu diesem phänomenalen und nervenaufreibenden Abenteuer <br>
+        der linearen Gleichungssysteme!<br>
+        In diesem Abenteuer ist deine Aufgabe ein Rätsel angelehnt an ein lineares Gleichungssystem zu lösen. 
+        Verschaff dir doch erstmal einen Überblick über die Aufgaben 
+        indem du auf add promt clickst und folgenden Befehl einträgst erhälts du einen Überblick
+        über die Tabellen der Datenbank. <br>
+        Probiere es mal mit PRAGMA TABLE_LIST aus!
+    </p>
+    <button onclick="showText('t1')">Tabelle anschauen</button>
+    <p id="t1" style="display:none;"> Mit SELECT * FROM tabellenname kannst du dir einmal die Aufgaben anzeigen lassen.
+        Achte darauf, dass du den richtigen Tabellennamen einträgst.  <br> </p>
+
+    <button onclick="showText('t2')">Datensätze selecten</button>
+    <p id="t2" style="display:none;">Mit SELECT<br> </p>
+
+    <button onclick="showText('t3')">Datensätze selecten</button>
+    <p id="t3" style="display:none;">Hier ist der angezeigte Text3! <br> </p>
+
+    <button onclick="showText('t4')">Tabellen joinen</button>
+    <p id="t4" style="display:none;">Hier ist der angezeigte Text4! <br> </p>
+
+    <button onclick="showText('t5')">Mengenoperationen</button>
+    <p id="t5" style="display:none;">Hier ist der angezeigte Text5! <br> </p>
+
+    <div>
+        <h2>Start</h2>
+        <label class="label-for-fileupload" for="selected file">Open DB File</label>
+        <input type="file" class="loadDbFile" onchange="inputFileChanged(event)" id="selected file">
+        <p id="database state">No database</p>
+    </div>
+    
+    <div id="sql-prompts"></div>
+    <button onclick="addNewEmptyPrompt()">Add prompt</button>
+    
+    <h3> Submit your result</h3>
+    <select id="taskSelect" >
+        <option value="0">Select an Aufgabe</option>
+        <option value="1">Aufgabe 1</option>
+        <option value="2">Aufgabe 2</option>
+        <option value="3">Aufgabe 3</option>
+        <option value="4">Aufgabe 4</option>
+        <option value="5">Aufgabe 5</option>
+    </select>
+        <input type="number" id="inputValue" placeholder="Enter a number">
+        <input type="submit" value="Submit" onclick="checkInputValue()">
+        <img id="resultImage" src="" alt="Result Image" width="300" height="400">
+
+</div>
+</body>
+</html>

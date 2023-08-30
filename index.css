@@ -1,0 +1,28 @@
+textarea {
+    width: 100%;
+    height: 150px;
+    resize: vertical;
+}
+
+.loadDbFile {
+    display: none;
+}
+
+.label-for-fileupload {
+    border: solid;
+    background: lightgray;
+    border-width: thin;
+}
+
+.label-for-fileupload:hover {
+    background-color: cyan;
+}
+
+.CodeMirror {
+    border: 1px solid lightgray;
+    height: auto;
+}
+
+.resultTable, .resultTable td, .resultTable th {
+    border: 1px solid;
+}
